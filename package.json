@@ -1,7 +1,7 @@
 {
   "name": "@izumisy/tailor-barebone-cdktf-sdk",
   "description": "Barebone CDKTF SDK for Tailor Platform",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
