@@ -126,19 +126,21 @@ export class Barebone {
       defaultTypePermission?: Tailor.tailordbType.TailordbTypeTypePermission;
     }
   ) {
-    Object.keys(definitions)
+    const defaultTypePermission =
+      options?.defaultTypePermission ??
+      permitByIDs({
+        create: [this.machineUserID],
+        read: [this.machineUserID],
+        update: [this.machineUserID],
+        delete: [this.machineUserID],
+      });
+
+    return Object.keys(definitions)
       .map((key) =>
         definitions[key](key, {
           workspace: this.src.workspace,
           tailordb: this.src.tailordb,
-          defaultTypePermission:
-            options.defaultTypePermission ??
-            permitByIDs({
-              create: [this.machineUserID],
-              read: [this.machineUserID],
-              update: [this.machineUserID],
-              delete: [this.machineUserID],
-            }),
+          defaultTypePermission,
         })
       )
       .map(
