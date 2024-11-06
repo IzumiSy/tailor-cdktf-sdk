@@ -120,18 +120,25 @@ export class Barebone {
     }
   ) {}
 
-  addTables(definitions: Record<string, ReturnType<typeof defineTable>>) {
+  addTables(
+    definitions: Record<string, ReturnType<typeof defineTable>>,
+    options?: {
+      defaultTypePermission?: Tailor.tailordbType.TailordbTypeTypePermission;
+    }
+  ) {
     Object.keys(definitions)
       .map((key) =>
         definitions[key](key, {
           workspace: this.src.workspace,
           tailordb: this.src.tailordb,
-          defaultTypePermission: permitByIDs({
-            create: [this.machineUserID],
-            read: [this.machineUserID],
-            update: [this.machineUserID],
-            delete: [this.machineUserID],
-          }),
+          defaultTypePermission:
+            options.defaultTypePermission ??
+            permitByIDs({
+              create: [this.machineUserID],
+              read: [this.machineUserID],
+              update: [this.machineUserID],
+              delete: [this.machineUserID],
+            }),
         })
       )
       .map(
