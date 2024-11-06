@@ -11,7 +11,7 @@ const devOpts =
     : {};
 
 export default defineConfig({
-  format: ["esm"],
+  format: ["cjs"],
   entry: ["src/index.ts"],
   clean: true,
   minify: true,
