@@ -11,6 +11,8 @@ type TableDefInput = {
   defaultTypePermission: TailordbTypeTypePermission;
 };
 
+export type TableDefiner = ReturnType<typeof defineTable>;
+
 export const defineTable =
   (definition: TableDef) =>
   (name: string, input: TableDefInput): TailordbTypeConfig => {
