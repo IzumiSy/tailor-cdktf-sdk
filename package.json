@@ -1,10 +1,16 @@
 {
   "name": "@izumisy/tailor-barebone-cdktf-sdk",
-  "description": "",
+  "description": "Barebone CDKTF SDK for Tailor Platform",
   "version": "0.1.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fetch": "cdktf get",
+    "dev": "NODE_ENV=development tsup --watch",
+    "build": "pnpm run fetch && tsup",
+    "publish": "pnpm build && pnpm publish --access public"
   },
   "author": "",
   "license": "MIT",
@@ -13,6 +19,7 @@
     "constructs": "^10.4.2"
   },
   "devDependencies": {
+    "@types/node": "^22.9.0",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"
   }

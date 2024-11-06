@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "moduleResolution": "Bundler",
+    "module": "ES2015"
+  },
+  "include": ["."],
+  "exclude": ["dist", "node_modules"]
+}
