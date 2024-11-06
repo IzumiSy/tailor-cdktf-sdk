@@ -7,10 +7,10 @@
     "dist/**"
   ],
   "scripts": {
-    "fetch": "cdktf get",
+    "cdktf:fetch": "cdktf get",
     "dev": "NODE_ENV=development tsup --watch",
-    "build": "pnpm run fetch && tsup",
-    "publish": "pnpm build && pnpm publish --access public"
+    "build": "pnpm cdktf:fetch && tsup",
+    "package:publish": "pnpm build && pnpm publish --access public"
   },
   "author": "",
   "license": "MIT",
