@@ -11,11 +11,14 @@ type TableDefInput = {
   defaultTypePermission: TailordbTypeTypePermission;
 };
 
-export type TableDefiner = ReturnType<typeof defineTable>;
+export type TableDefiner = (
+  name: string,
+  input: TableDefInput
+) => TailordbTypeConfig;
 
 export const defineTable =
-  (definition: TableDef) =>
-  (name: string, input: TableDefInput): TailordbTypeConfig => {
+  (definition: TableDef): TableDefiner =>
+  (name: string, input: TableDefInput) => {
     return {
       workspaceId: input.workspace.id,
       namespace: input.tailordb.namespace,
