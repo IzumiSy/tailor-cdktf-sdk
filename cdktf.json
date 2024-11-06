@@ -3,8 +3,5 @@
   "app": "exit 0",
   "terraformProviders": [
     "tailor-platform/tailor@~> 0.0"
-  ],
-  "terraformModules": [],
-  "context": {},
-  "projectId": "837a82e8-3031-4354-b2da-a3b82b7b1a52"
+  ]
 }
