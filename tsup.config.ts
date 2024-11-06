@@ -12,7 +12,7 @@ const devOpts =
 
 export default defineConfig({
   format: ["cjs"],
-  entry: ["src/index.ts"],
+  entry: ["src/provider/index.ts", "src/sdk/index.ts"],
   clean: true,
   minify: true,
   dts: true,
