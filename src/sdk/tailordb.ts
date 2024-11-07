@@ -48,9 +48,9 @@ export const permitByIDs = (opts: {
   delete?: (string | undefined)[];
 }) => ({
   create: opts.create.flatMap(createAttr),
-  read: opts.create.flatMap(createAttr),
-  update: opts.create.flatMap(createAttr),
-  delete: opts.create.flatMap(createAttr),
+  read: opts.read.flatMap(createAttr),
+  update: opts.update.flatMap(createAttr),
+  delete: opts.delete.flatMap(createAttr),
 });
 
 const createAttr = (id: string | undefined) =>

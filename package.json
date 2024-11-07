@@ -20,7 +20,8 @@
     "dev": "NODE_ENV=development tsup --watch",
     "build": "pnpm cdktf:fetch && pnpm type-check && tsup",
     "type-check": "tsc --noEmit --incremental --pretty",
-    "package:publish": "pnpm build && pnpm publish --access public"
+    "package:publish": "pnpm build && pnpm publish --access public",
+    "test": "node --import tsx --test src/sdk/*.test.ts"
   },
   "author": "",
   "license": "MIT",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@types/node": "^22.9.0",
     "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   }
 }
