@@ -3,12 +3,19 @@ import * as Tailor from "../../.gen/providers/tailor";
 import { AuthInput } from "./auth/idp";
 import { defineTable, permitByIDs } from "./tailordb";
 
+type CreateWorkspaceOption = string | Tailor.workspace.WorkspaceConfig;
+type CreateAppOption =
+  | string
+  | ((
+      defaultOptions: Omit<Tailor.application.ApplicationConfig, "name">
+    ) => Tailor.application.ApplicationConfig);
+
 export const createBarebone = (
   stack: TerraformStack,
   pat: string | undefined,
   options: {
-    workspaceName: string;
-    appName: string;
+    workspace: CreateWorkspaceOption;
+    app: CreateAppOption;
     initialMachineUserID?: string;
     attachIDPConfig?: (source: AuthInput) => Tailor.authIdpConfig.AuthIdpConfig;
   }
@@ -21,10 +28,13 @@ export const createBarebone = (
    * Workspaces
    */
 
-  const workspace = new Tailor.workspace.Workspace(stack, "workspace", {
-    name: options.workspaceName,
-    region: "asia-northeast",
-  });
+  const workspace = new Tailor.workspace.Workspace(
+    stack,
+    "workspace",
+    typeof options.workspace === "string"
+      ? { name: options.workspace, region: "asia-northeast" }
+      : options.workspace
+  );
 
   /**
    * TailorDBs
@@ -84,9 +94,8 @@ export const createBarebone = (
    * Applications
    */
 
-  new Tailor.application.Application(stack, "application", {
+  const defaultAppOption = {
     workspaceId: workspace.id,
-    name: options.appName,
     subgraphs: [
       {
         type: "tailordb",
@@ -98,7 +107,18 @@ export const createBarebone = (
       namespace: auth.namespace,
       ...(idpConfig ? { idpConfigName: idpConfig.name } : {}),
     },
-  });
+  };
+
+  new Tailor.application.Application(
+    stack,
+    "application",
+    typeof options.app === "string"
+      ? {
+          ...defaultAppOption,
+          name: options.app,
+        }
+      : options.app(defaultAppOption)
+  );
 
   return new Barebone(stack, options.initialMachineUserID, {
     workspace,
