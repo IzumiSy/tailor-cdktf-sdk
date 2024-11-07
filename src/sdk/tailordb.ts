@@ -16,6 +16,18 @@ export type TableDefiner = (
   input: TableDefInput
 ) => TailordbTypeConfig;
 
+const defaultDirectives = [
+  {
+    name: "key",
+    args: [
+      {
+        name: "fields",
+        value: "id",
+      },
+    ],
+  },
+];
+
 export const defineTable =
   (definition: TableDef): TableDefiner =>
   (name: string, input: TableDefInput) => {
@@ -24,7 +36,8 @@ export const defineTable =
       namespace: input.tailordb.namespace,
       name: name,
       fields: definition.fields,
-      typePermission: definition.typePermission || input.defaultTypePermission,
+      typePermission: definition.typePermission ?? input.defaultTypePermission,
+      directives: definition.directives ?? defaultDirectives,
     };
   };
 
