@@ -42,10 +42,10 @@ export const defineTable =
   };
 
 export const permitByIDs = (opts: {
-  create: (string | undefined)[];
-  read: (string | undefined)[];
-  update: (string | undefined)[];
-  delete: (string | undefined)[];
+  create?: (string | undefined)[];
+  read?: (string | undefined)[];
+  update?: (string | undefined)[];
+  delete?: (string | undefined)[];
 }) => ({
   create: opts.create.flatMap(createAttr),
   read: opts.create.flatMap(createAttr),
