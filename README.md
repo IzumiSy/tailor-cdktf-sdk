@@ -43,7 +43,7 @@ class MyStack extends TerraformStack {
             },
             assigneeName: {
               type: "string"
-            }
+            },
             dueDate: {
               type: "date"
             }
