@@ -3,13 +3,17 @@
   "description": "Barebone CDKTF SDK for Tailor Platform",
   "version": "0.2.12",
   "exports": {
-    ".": {
-      "types": "./dist/provider/index.d.ts",
-      "default": "./dist/provider/index.js"
-    },
-    "./sdk": {
-      "types": "./dist/sdk/index.d.ts",
-      "default": "./dist/sdk/index.js"
+    ".": "./dist/provider/index.js",
+    "./sdk": "./dist/sdk/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/provider/index.d.ts"
+      ],
+      "sdk": [
+        "./dist/sdk/index.d.ts"
+      ]
     }
   },
   "files": [
