@@ -1,0 +1,8 @@
+{
+  "language": "typescript",
+  "app": "exit 0",
+  "terraformProviders": [
+    "tailor-platform/tailor@~> 0.0"
+  ],
+  "projectId": "61a04ef5-c98c-45de-bd7b-a5f85067b95f"
+}

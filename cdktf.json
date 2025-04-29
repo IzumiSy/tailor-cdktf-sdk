@@ -1,7 +1,0 @@
-{
-  "language": "typescript",
-  "app": "exit 0",
-  "terraformProviders": [
-    "tailor-platform/tailor@~> 0.0"
-  ]
-}

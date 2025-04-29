@@ -1,40 +1,16 @@
 {
-  "name": "@izumisy/tailor-cdktf-sdk",
-  "description": "CDKTF SDK for Tailor Platform",
-  "version": "0.2.14",
-  "exports": {
-    ".": "./dist/provider/index.js",
-    "./sdk": "./dist/sdk/index.js"
+  "name": "tailor-cdktf",
+  "private": true,
+  "engines": {
+    "node": "22.x"
   },
-  "types": "./dist/provider/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "sdk": [
-        "./dist/sdk/index.d.ts"
-      ]
-    }
-  },
-  "files": [
-    "dist/**"
-  ],
   "scripts": {
-    "cdktf:fetch": "cdktf get",
-    "dev": "NODE_ENV=development tsup --watch",
-    "build": "pnpm cdktf:fetch && pnpm type-check && tsup",
-    "type-check": "tsc --noEmit --incremental --pretty",
-    "package:publish": "pnpm build && pnpm publish --access public",
-    "test": "node --import tsx --test src/sdk/*.test.ts"
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "type-check": "turbo type-check"
   },
-  "author": "",
-  "license": "MIT",
-  "peerDependencies": {
-    "cdktf": "^0.20.9",
-    "constructs": "^10.4.2"
-  },
+  "packageManager": "pnpm@10.10.0",
   "devDependencies": {
-    "@types/node": "^22.9.0",
-    "tsup": "^8.3.5",
-    "tsx": "^4.19.2",
-    "typescript": "^5.6.3"
+    "turbo": "^2.4.0"
   }
 }
