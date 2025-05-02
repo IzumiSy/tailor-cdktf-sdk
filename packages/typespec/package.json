@@ -10,12 +10,14 @@
   ],
   "scripts": {
     "dev": "NODE_ENV=development tsup --watch",
-    "build": "tsup"
+    "build": "tsup",
+    "test": "vitest"
   },
   "author": "IzumiSy",
   "license": "MIT",
   "dependencies": {
-    "@typespec/compiler": "1.0.0-rc.1"
+    "@typespec/compiler": "1.0.0-rc.1",
+    "vitest": "^3.1.2"
   },
   "devDependencies": {
     "@types/node": "^22.9.0",

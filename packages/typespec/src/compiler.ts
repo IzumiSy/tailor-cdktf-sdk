@@ -1,7 +1,6 @@
 import type { Namespace } from "@typespec/compiler";
-import { resolve } from "path";
 
-const compile = async (props: { filePath: string }) => {
+export const compile = async (props: { filePath: string }) => {
   const typeSpecCompiler = await import("@typespec/compiler");
   const program = await typeSpecCompiler.compile(
     typeSpecCompiler.NodeHost,
@@ -27,9 +26,3 @@ const compile = async (props: { filePath: string }) => {
     }
   }
 };
-
-compile({
-  filePath: resolve("main.tsp"),
-}).catch((error) => {
-  console.error(error);
-});
