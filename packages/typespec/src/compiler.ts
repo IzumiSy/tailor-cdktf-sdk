@@ -1,11 +1,11 @@
 import type { Namespace } from "@typespec/compiler";
 import { resolve } from "path";
 
-const main = async () => {
+const compile = async (props: { filePath: string }) => {
   const typeSpecCompiler = await import("@typespec/compiler");
   const program = await typeSpecCompiler.compile(
     typeSpecCompiler.NodeHost,
-    resolve("main.tsp")
+    props.filePath
   );
 
   const { diagnostics } = program;
@@ -23,11 +23,13 @@ const main = async () => {
     console.log(name);
 
     for (const [propName, propDef] of modelDef.properties) {
-      console.log(" - ", propName);
+      console.log("*", propName);
     }
   }
 };
 
-main().catch((error) => {
+compile({
+  filePath: resolve("main.tsp"),
+}).catch((error) => {
   console.error(error);
 });

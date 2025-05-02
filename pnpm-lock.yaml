@@ -17,9 +17,6 @@ importers:
 
   packages/sdk:
     dependencies:
-      '@typespec/compiler':
-        specifier: 1.0.0-rc.1
-        version: 1.0.0-rc.1(@types/node@22.15.3)
       cdktf:
         specifier: ^0.20.12
         version: 0.20.12(constructs@10.4.2)
@@ -33,6 +30,28 @@ importers:
       constructs:
         specifier: ^10.4.2
         version: 10.4.2
+      prettier:
+        specifier: ^3.5.3
+        version: 3.5.3
+      tsup:
+        specifier: ^8.3.5
+        version: 8.4.0(tsx@4.19.4)(typescript@5.8.3)(yaml@2.7.1)
+      tsx:
+        specifier: ^4.19.2
+        version: 4.19.4
+      typescript:
+        specifier: ^5.6.3
+        version: 5.8.3
+
+  packages/typespec:
+    dependencies:
+      '@typespec/compiler':
+        specifier: 1.0.0-rc.1
+        version: 1.0.0-rc.1(@types/node@22.15.3)
+    devDependencies:
+      '@types/node':
+        specifier: ^22.9.0
+        version: 22.15.3
       prettier:
         specifier: ^3.5.3
         version: 3.5.3

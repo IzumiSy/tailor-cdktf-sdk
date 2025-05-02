@@ -1,3 +1,5 @@
+import "../../dist/index.js";
+
 model Person {
   name: string;
 };
@@ -5,7 +7,11 @@ model Person {
 namespace TailorDB {
   model User {
     ...Person;
+
+    @required
     age: numeric;
+
+    @required
     hasJob: boolean;
   }
 };
