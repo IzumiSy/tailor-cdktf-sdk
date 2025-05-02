@@ -1,1 +1,2 @@
-export { $required } from "./decorators";
+export * from "./decorators";
+export { TailorDBTypeSpecCompiler } from "./compiler";

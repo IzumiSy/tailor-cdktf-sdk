@@ -1,8 +1,9 @@
 import type { DecoratorContext, Type } from "@typespec/compiler";
-import { keyRequiredFields } from "./symbols";
 
-export const $required = (context: DecoratorContext, type: Type) => {
-  context.program.stateMap(keyRequiredFields).set(type, {
-    required: true,
-  });
+export const $indexed = (context: DecoratorContext, type: Type) => {
+  // implementation for $indexed decorator
+};
+
+export const $unique = (context: DecoratorContext, type: Type) => {
+  // implementation for $unique decorator
 };
