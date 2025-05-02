@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES2022",
     "moduleResolution": "Bundler",
-    "module": "ES2015",
+    "module": "Preserve",
   },
   "include": ["."],
   "exclude": ["dist", "node_modules"]

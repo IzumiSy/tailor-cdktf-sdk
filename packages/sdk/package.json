@@ -35,8 +35,12 @@
     "@types/node": "^22.9.0",
     "cdktf-cli": "^0.20.12",
     "constructs": "^10.4.2",
+    "prettier": "^3.5.3",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@typespec/compiler": "1.0.0-rc.1"
   }
 }
