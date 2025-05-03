@@ -33,6 +33,7 @@ namespace TailorDB {
 
   @doc("A general user model")
   @hasOneRelation(Company)
+  @hasManyRelation(UserProject)
   model User {
     ...Person;
     age?: numeric;
@@ -42,12 +43,10 @@ namespace TailorDB {
 
     @doc("User's address")
     address: Address;
-
-    @doc("User's role")
-    role: UserRole = UserRole.User;
   }
 
   @doc("A model representing a project")
+  @hasManyRelation(UserProject)
   model Project {
     @doc("Project name")
     name: string;
@@ -57,6 +56,14 @@ namespace TailorDB {
 
     @doc("Project status")
     status: string;
+  }
+
+  @doc("A model representing relationship between user and project")
+  @hasOneRelation(User)
+  @hasOneRelation(Project)
+  model UserProject {
+    @doc("Role in the project")
+    role: string;
   }
 };
 
