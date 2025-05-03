@@ -20,6 +20,14 @@ const hasOneRelation = (context: DecoratorContext, type: Type) => {
   // implementation for $hasOneRelation decorator
 };
 
+const intermediateRelation = (context: DecoratorContext, type: Type) => {
+  // implementation for $intermadiateRelation decorator
+};
+
+const compositeIndex = (context: DecoratorContext, type: Type) => {
+  // implementation for $compositeIndex decorator
+};
+
 export const $decorators = {
   "Tailor.TailorDB": {
     indexed,
@@ -27,5 +35,7 @@ export const $decorators = {
     hooks,
     hasManyRelation,
     hasOneRelation,
+    intermediateRelation,
+    compositeIndex,
   },
 };

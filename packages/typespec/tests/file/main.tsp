@@ -23,6 +23,7 @@ enum UserRole {
 namespace TailorDB {
   @doc("A model representing a company")
   @hasManyRelation(User)
+  @hasManyRelation(Project)
   model Company {
     @doc("Company name")
     name: string;
@@ -59,8 +60,7 @@ namespace TailorDB {
   }
 
   @doc("A model representing relationship between user and project")
-  @hasOneRelation(User)
-  @hasOneRelation(Project)
+  @intermediateRelation(User, Project)
   model UserProject {
     @doc("Role in the project")
     role: string;
