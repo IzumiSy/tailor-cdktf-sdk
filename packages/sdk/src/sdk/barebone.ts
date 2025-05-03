@@ -128,6 +128,8 @@ export const createBarebone = (
   });
 };
 
+type TableDefinition = ReturnType<typeof defineTable>;
+
 export class Barebone {
   constructor(
     readonly stack: TerraformStack,
@@ -141,7 +143,7 @@ export class Barebone {
   ) {}
 
   addTables(
-    definitions: Record<string, ReturnType<typeof defineTable>>,
+    definitions: Record<string, TableDefinition>,
     options?: {
       defaultTypePermission?: Tailor.tailordbType.TailordbTypeTypePermission;
     }

@@ -1,0 +1,30 @@
+{
+  "name": "@izumisy/tailor-cdktf-typespec",
+  "description": "Typespec compiler for Tailor Platform",
+  "private": true,
+  "version": "0.1.0",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "dev": "NODE_ENV=development tsup --watch",
+    "build": "tsup",
+    "test": "vitest"
+  },
+  "author": "IzumiSy",
+  "license": "MIT",
+  "dependencies": {
+    "@typespec/compiler": "1.0.0-rc.1",
+    "vitest": "^3.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "prettier": "^3.5.3",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5"
+  }
+}
